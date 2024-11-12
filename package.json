@@ -1,5 +1,5 @@
 {
-  "name": "example-with-tailwindcss",
+  "name": "thereceipts",
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
@@ -9,10 +9,15 @@
     "deploy": "npm run build && wrangler pages deploy"
   },
   "dependencies": {
+    "@kobalte/core": "^0.13.7",
+    "@kobalte/tailwindcss": "^0.9.0",
     "@solidjs/router": "^0.15.0",
     "@solidjs/start": "^1.0.10",
     "autoprefixer": "^10.4.19",
+    "lucide-solid": "^0.456.0",
+    "nanoid": "^5.0.8",
     "postcss": "^8.4.38",
+    "replicache": "^15.0.1",
     "solid-js": "^1.9.2",
     "tailwindcss": "^3.4.3",
     "vinxi": "^0.4.3"
