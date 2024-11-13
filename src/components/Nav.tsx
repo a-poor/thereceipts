@@ -33,9 +33,9 @@ function TopMobileNav() {
 function BottomTabNav() {
   const location = useLocation();
   const active = (path: string) =>
-    path == location.pathname ? "text-cyan-50" : "text-cyan-200";
+    path == location.pathname ? "text-cyan-50" : "text-cyan-200 hover:text-cyan-100";
   return (
-    <div class="sm:hidden grid grid-cols-5 px-2 pt-4 pb-4 gap-1 bg-cyan-600 text-neutral-500">
+    <div class="sm:hidden grid grid-cols-5 px-2 pt-4 pb-4 gap-1 bg-cyan-600">
       <A href="/" class={"flex flex-col items-center gap-1 " + active("/")}>
         <Home />
         <span class="text-xs font-medium">
