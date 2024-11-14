@@ -151,7 +151,9 @@ export type CreateReceiptArgs = {
 };
 
 export const createReceipt = async (tx: WriteTransaction, args: CreateReceiptArgs) => {
+  await tx.set(`receipt/${args.id}`, args);
   console.log("createReceipt", args);
+  return args;
 };
 
 export type UpdateReceiptArgs = {

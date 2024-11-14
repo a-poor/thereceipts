@@ -1,4 +1,10 @@
 // @refresh reload
 import { mount, StartClient } from "@solidjs/start/client";
+import ReplicacheProvider from "./components/ReplicacheContext";
 
-mount(() => <StartClient />, document.getElementById("app")!);
+mount(() => (
+  <ReplicacheProvider>
+    <StartClient />
+  </ReplicacheProvider>
+), document.getElementById("app")!);
+

@@ -8,7 +8,7 @@ export function Nav(props: { children: JSXElement }) {
     <div class="h-full flex flex-col">
       <TopDesktopNav />
       <TopMobileNav />
-      <div class="flex-grow overscroll-contain">
+      <div class="flex-grow overscroll-contain bg-cyan-100">
         {props.children}
       </div>
       <BottomTabNav />
