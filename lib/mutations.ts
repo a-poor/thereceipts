@@ -1,5 +1,6 @@
 import type { WriteTransaction } from 'replicache';
 
+
 /**
   * A Receipt represents a *transaction* between two users.
   */
@@ -123,6 +124,8 @@ export type RecurringEvent = {
 };
 
 export type AddFriendArgs = {
+  userId: string;
+  friendId: string;
 };
 
 export const addFriend = async (tx: WriteTransaction, args: AddFriendArgs) => {
@@ -130,6 +133,8 @@ export const addFriend = async (tx: WriteTransaction, args: AddFriendArgs) => {
 };
 
 export type RemoveFriendArgs = {
+  userId: string;
+  friendId: string;
 };
 
 export const removeFriend = async (tx: WriteTransaction, args: RemoveFriendArgs) => {
@@ -151,12 +156,15 @@ export type CreateReceiptArgs = {
 };
 
 export const createReceipt = async (tx: WriteTransaction, args: CreateReceiptArgs) => {
-  await tx.set(`receipt/${args.id}`, args);
+  await tx.set(`/receipts/${args.id}`, args);
   console.log("createReceipt", args);
   return args;
 };
 
 export type UpdateReceiptArgs = {
+  userId: string;
+  receiptId: string;
+  // TODO: Add more fields here.
 };
 
 export const updateReceipt = async (tx: WriteTransaction, args: UpdateReceiptArgs) => {
@@ -164,13 +172,17 @@ export const updateReceipt = async (tx: WriteTransaction, args: UpdateReceiptArg
 };
 
 export type DeleteReceiptArgs = {
+  userId: string;
+  id: string;
 };
 
 export const deleteReceipt = async (tx: WriteTransaction, args: DeleteReceiptArgs) => {
+  await tx.del(`/receipts/${args.id}`);
   console.log("deleteReceipt", args);
 };
 
 export type CreateRecurringArgs = {
+  userId: string;
 };
 
 export const createRecurring = async (tx: WriteTransaction, args: CreateRecurringArgs) => {
@@ -178,6 +190,9 @@ export const createRecurring = async (tx: WriteTransaction, args: CreateRecurrin
 };
 
 export type UpdateRecurringArgs = {
+  userId: string;
+  recurringId: string;
+  // TODO: Add more fields here.
 };
 
 export const updateRecurring = async (tx: WriteTransaction, args: UpdateRecurringArgs) => {
@@ -185,6 +200,8 @@ export const updateRecurring = async (tx: WriteTransaction, args: UpdateRecurrin
 };
 
 export type DeleteRecurringArgs = {
+  userId: string;
+  recurringId: string;
 };
 
 export const deleteRecurring = async (tx: WriteTransaction, args: DeleteRecurringArgs) => {
